@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import CartRedux from "./CartRedux";
 import wishlistRedux from "./wishlistRedux";
+import cartSlice from "./CartRedux";
 import MenuReducer from "./MenuReducer";
 
 import {
@@ -27,7 +27,7 @@ const wishlistPersistConfig = {
   storage,
 };
 
-const persistedCartReducer = persistReducer(cartPersistConfig, CartRedux);
+const persistedCartReducer = persistReducer(cartPersistConfig, cartSlice);
 const persistedWishlistReducer = persistReducer(
   wishlistPersistConfig,
   wishlistRedux
@@ -35,7 +35,7 @@ const persistedWishlistReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
-    menu:MenuReducer,
+    menu: MenuReducer,
     cart: persistedCartReducer,
     wishlist: persistedWishlistReducer,
   },

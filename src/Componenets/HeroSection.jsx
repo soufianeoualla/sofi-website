@@ -2,7 +2,7 @@ import hero_product_1 from "./assets/hero_product_1.png";
 import hero_product_2 from "./assets/hero_product_2.png";
 import hero_product_3 from "./assets/hero_product_3.png";
 import hero_product_4 from "./assets/hero_product_4.png";
-import { BsArrowRight , BsArrowLeft  } from "react-icons/bs";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import wooden_Chair from "./assets/WoodenChair.png";
 import ProductSlide from "./ProductSlide";
 import { useState } from "react";
@@ -10,40 +10,36 @@ import { useDispatch } from "react-redux";
 import { addProducts } from "../redux/CartRedux";
 
 const HeroSection = () => {
- const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const heroProducts = [
     {
       id: 123,
       img: hero_product_1,
-      price: 499.00,
-      color:'pink',
-      name:'sofa',
-
+      price: 499.0,
+      color: "pink",
+      name: "sofa",
     },
     {
       id: 2234,
       img: hero_product_2,
-      price: 399.00,
-      color:'balck-gray',
-      name:'Armchair',
-
+      price: 399.0,
+      color: "balck-gray",
+      name: "Armchair",
     },
     {
       id: 3235,
       img: hero_product_3,
-      price: 479.00,
-      color:'brown',
-      name:'table',
-
+      price: 479.0,
+      color: "brown",
+      name: "table",
     },
     {
       id: 444656,
       img: hero_product_4,
-      price: 509.00,
-      color:'white',
-      name:'sofa',
-
-    }
+      price: 509.0,
+      color: "white",
+      name: "sofa",
+    },
   ];
 
   const [slide, setSlide] = useState(0);
@@ -58,12 +54,9 @@ const HeroSection = () => {
 
   const product = heroProducts[slide];
 
-
   const handleAddtoCart = () => {
-    dispatch(
-      addProducts(heroProducts[slide])
-    )
-  }
+    dispatch(addProducts(heroProducts[slide]));
+  };
 
   return (
     <section>
@@ -84,22 +77,31 @@ const HeroSection = () => {
       </div>
 
       <div className='flex md:flex-wrap  mt-5 gap-5 h-60 lg:h-52 md:h-auto'>
-
         <div className='w-3/5 relative bg-grey rounded-3xl md:w-full md:h-40 '>
-          <ProductSlide handleAddtoCart={handleAddtoCart}
-           item={product}/>
-          <div className="slider">
-            <div className="slides flex gap-2 justify-center items-center absolute bottom-10 left-1/2">
+          <ProductSlide handleAddtoCart={handleAddtoCart} item={product} />
+          <div className='slider'>
+            <div className='slides flex gap-2 justify-center items-center absolute bottom-10 left-1/2'>
               {heroProducts.map((_, index) => (
-                <div key={index} className={`h-1 rounded-3xl ${slide === index ? 'bg-black w-8 ' : ' bg-darkgrey w-4 '}`}></div>
+                <div
+                  key={index}
+                  className={`h-1 rounded-3xl ${
+                    slide === index ? "bg-black w-8 " : " bg-darkgrey w-4 "
+                  }`}
+                ></div>
               ))}
             </div>
-            <div className="arrows flex absolute bottom-5 gap-3 right-4">
-              <div className="flex justify-center items-center w-10 h-10 border-darkgrey border rounded-full cursor-pointer  hover:bg-black hover:text-white " onClick={handlePrevSlide}>
-                <BsArrowLeft className="text-dark" />
+            <div className='arrows flex absolute bottom-5 gap-3 right-4'>
+              <div
+                className='flex justify-center items-center w-10 h-10 border-darkgrey border rounded-full cursor-pointer  hover:bg-black hover:text-white '
+                onClick={handlePrevSlide}
+              >
+                <BsArrowLeft className='text-dark' />
               </div>
-              <div className="flex justify-center items-center w-10 h-10 border-darkgrey border rounded-full text-white bg-black cursor-pointer hover:scale-110" onClick={handleNextSlide}>
-                <BsArrowRight className="text-dark" />
+              <div
+                className='flex justify-center items-center w-10 h-10 border-darkgrey border rounded-full text-white bg-black cursor-pointer hover:scale-110'
+                onClick={handleNextSlide}
+              >
+                <BsArrowRight className='text-dark' />
               </div>
             </div>
           </div>

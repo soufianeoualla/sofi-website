@@ -62,19 +62,19 @@ b {
 }
 
 @media screen and (max-width: 639px) {
-    p{
-        font-size: 12px;
-    }
-    .image-hero {
-      left: 50%;
-      transform: translate(45%, -50%);
-    }
-    .add-to-cart {
-        top: -35%;
-         right: 50%;
-      transform: translate(120%, 0%);
-    }
+  p {
+    font-size: 12px;
   }
+  .image-hero {
+    left: 50%;
+    transform: translate(45%, -50%);
+  }
+  .add-to-cart {
+    top: -35%;
+    right: 50%;
+    transform: translate(120%, 0%);
+  }
+}
 .plus {
   outline: 6px solid rgba(255, 255, 255, 0.3);
 }
